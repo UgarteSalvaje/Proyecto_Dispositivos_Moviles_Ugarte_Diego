@@ -1,10 +1,15 @@
 import 'package:flutter/material.dart';
+import 'package:sqflite/sqflite.dart';
 import 'juegos.dart';
 import 'Rutinas.dart';
 import 'Recordatorio.dart';
 import 'Recomendaciones.dart';
+import 'Base_de_datos/Database.dart';
 
-void main() => runApp(const MyApp());
+Future<void>main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  runApp(const MyApp());
+}
 
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
@@ -38,9 +43,10 @@ class MyCustomForm extends StatelessWidget {
             decoration: const InputDecoration(
               border: UnderlineInputBorder(),
               labelText: 'Ingrese su nombre de usuario',
-              ),
             ),
-        ), Padding(
+          ),
+        ),
+        Padding(
           padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 16),
           child: TextFormField(
             decoration: const InputDecoration(
@@ -49,16 +55,23 @@ class MyCustomForm extends StatelessWidget {
             ),
           ),
         ),
-
-        ElevatedButton(child: const Text('Iniciar Sesion'), onPressed: () 
-      {Navigator.push(context, MaterialPageRoute(builder: (context) => const Pantalla()),);},)
+        ElevatedButton(
+          child: const Text('Iniciar Sesion'),
+          onPressed: () {
+            Navigator.push(
+              context,
+              MaterialPageRoute(builder: (context) => const Pantalla()),
+            );
+          },
+        )
       ],
     );
   }
 }
 
-class Pantalla extends StatelessWidget{
+class Pantalla extends StatelessWidget {
   const Pantalla({super.key});
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -67,13 +80,11 @@ class Pantalla extends StatelessWidget{
         fontFamily: 'Powerpuff',
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.amber),
         useMaterial3: true,
-      ), 
-      home: const MyHomePage(title: 'Bienvenido La_li_lu_le_lo!'),
+      ),
+      home: const MyHomePage(title: 'Bienvenido!'),
     );
   }
 }
-  @override
-  
 
 class MyHomePage extends StatefulWidget {
   const MyHomePage({super.key, required this.title});
@@ -84,7 +95,71 @@ class MyHomePage extends StatefulWidget {
   State<MyHomePage> createState() => _MyHomePageState();
 }
 
-class Perfil{
+class _MyHomePageState extends State<MyHomePage> {
+  int _selectedIndex = 0;
+
+  static const List<Widget> _widgetOptions = <Widget>[
+    
+    ListaRecordatorios(),
+    ListaJuegos(),
+    _Perfil(),
+  ];
+
+  void _onItemTapped(int index) {
+    setState(() {
+      _selectedIndex = index;
+    });
+    Navigator.pop(context); // Close the drawer when an item is tapped
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        title: Text(widget.title),
+      ),
+      drawer: Drawer(
+        child: ListView(
+          padding: EdgeInsets.zero,
+          children: <Widget>[
+            const DrawerHeader(
+              decoration: BoxDecoration(
+                color: Colors.amber,
+              ),
+              child: Text(
+                'Menu de Navegacion',
+                style: TextStyle(
+                  color: Colors.black,
+                  fontSize: 24,
+                ),
+              ),
+            ),
+            ListTile(
+              leading: const Icon(Icons.alarm),
+              title: const Text('Recordatorios'),
+              onTap: () => _onItemTapped(0),
+            ),
+            ListTile(
+              leading: const Icon(Icons.gamepad),
+              title: const Text('Juegos'),
+              onTap: () => _onItemTapped(1),
+            ),
+            ListTile(
+              leading: const Icon(Icons.person),
+              title: const Text('Usuario'),
+              onTap: () => _onItemTapped(2),
+            ),
+          ],
+        ),
+      ),
+      body: Center(
+        child: _widgetOptions.elementAt(_selectedIndex),
+      ),
+    );
+  }
+}
+
+class Perfil {
   String sesion;
   String nacionalidad;
   String codigo_jugador;
@@ -99,13 +174,12 @@ class _Perfil extends StatefulWidget {
   State<_Perfil> createState() => _PerfilState();
 }
 
-class _PerfilState extends State<_Perfil>{
-  
+class _PerfilState extends State<_Perfil> {
   Perfil perfil = Perfil(sesion: "La li lu le lo", nacionalidad: "Chilena", codigo_jugador: "A7AKJNDJCN");
   late final TextEditingController sessionController;
   late final TextEditingController nationalityController;
   late final TextEditingController player_codeController;
-  
+
   @override
   void initState() {
     super.initState();
@@ -128,23 +202,12 @@ class _PerfilState extends State<_Perfil>{
           children: <Widget>[
             Padding(
               padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 16),
-              child: TextField(controller: sessionController,
+              child: TextField(
+                controller: sessionController,
                 decoration: const InputDecoration(
-                border: UnderlineInputBorder(),
-                labelText: 'Nombre de usuario:',
-                labelStyle: TextStyle(color: Colors.black),
-                ),
-                enabled: false,
-                style: const TextStyle(color: Colors.black),
-              ),
-            ), 
-            Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 16),
-              child: TextField(controller: nationalityController,
-                decoration: const InputDecoration(
-                border: UnderlineInputBorder(),
-                labelText: 'Nacionalidad:',
-                labelStyle: TextStyle(color: Colors.black),
+                  border: UnderlineInputBorder(),
+                  labelText: 'Nombre de usuario:',
+                  labelStyle: TextStyle(color: Colors.black),
                 ),
                 enabled: false,
                 style: const TextStyle(color: Colors.black),
@@ -152,11 +215,25 @@ class _PerfilState extends State<_Perfil>{
             ),
             Padding(
               padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 16),
-              child: TextField(controller: player_codeController,
+              child: TextField(
+                controller: nationalityController,
                 decoration: const InputDecoration(
-                border: UnderlineInputBorder(),
-                labelText: 'Codigo de Jugador:',
-                labelStyle: TextStyle(color: Colors.black),
+                  border: UnderlineInputBorder(),
+                  labelText: 'Nacionalidad:',
+                  labelStyle: TextStyle(color: Colors.black),
+                ),
+                enabled: false,
+                style: const TextStyle(color: Colors.black),
+              ),
+            ),
+            Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 16),
+              child: TextField(
+                controller: player_codeController,
+                decoration: const InputDecoration(
+                  border: UnderlineInputBorder(),
+                  labelText: 'Codigo de Jugador:',
+                  labelStyle: TextStyle(color: Colors.black),
                 ),
                 enabled: false,
                 style: const TextStyle(color: Colors.black),
@@ -167,61 +244,4 @@ class _PerfilState extends State<_Perfil>{
       ),
     );
   }
-}
-
-
-class _MyHomePageState extends State<MyHomePage> {
-  
-  int _selectedIndex = 0;
-
-  static const List<Widget> _widgetOptions = <Widget>[
-    News(),
-    ListaRutinas(),
-    ListaJuegos(),
-    _Perfil(),
-    ListaRecordatorios(),
-  ];
-
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      body: Center(
-        child: _widgetOptions.elementAt(_selectedIndex),
-      ),
-      bottomNavigationBar: NavigationBar(
-        onDestinationSelected: (int index) {
-          setState(() {
-            _selectedIndex = index;
-          });
-        },
-        indicatorColor: Colors.amber,
-        selectedIndex: _selectedIndex,
-        destinations: const <Widget>[
-          NavigationDestination(
-            //selectedIcon: Icon(Icons.home),
-            icon: Icon(Icons.home),
-            label: 'Home',
-          ),
-          NavigationDestination(
-            //selectedIcon: Icon(Icons.home),
-            icon: Icon(Icons.fitness_center),
-            label: 'Rutinas',
-          ),
-          NavigationDestination(
-            icon: Icon(Icons.games),
-            label: 'Juegos',
-          ),
-          NavigationDestination(
-           icon: Icon(Icons.person),
-            label: 'Usuario',
-          ),
-          NavigationDestination(
-            icon: Icon(Icons.alarm),
-            label: 'Deberes',
-          )
-        ],
-      ),
-    );
-  }
-
 }

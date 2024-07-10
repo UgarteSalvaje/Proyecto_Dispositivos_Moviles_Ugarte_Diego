@@ -1,0 +1,133 @@
+  [
+    {
+      "id": 1,
+      "nombre": "Street Fighter 5",
+      "plataforma": "PS4",
+      "urlImagen": "assets/Images/Street_Fighter_old_logo.svg",
+      "descripcion": "Juego de peleas 2d desarrollado por capcom.",
+      "link_plataforma": "https://www.streetfighter.com/5/en-us/index.html",
+      "rutinas": [{
+        "id": 1,
+        "nombre": "Dominar el Hadouken",
+        "descripcion": "Aprender a ejecutar el ataque Hadouken con Ryu.",
+        "pasos": ["Hacer un cuarto de círculo hacia adelante", "Presionar el botón de puño"],
+        "dificultad": "Facil",
+        "resultado": "Hadouken"
+      },
+      {
+        "id": 2,
+        "nombre": "Combos Básicos",
+        "descripcion": "Aprender a encadenar ataques básicos para crear combos efectivos.",
+        "pasos": ["Realizar un ataque ligero", "Seguir con un ataque medio", "Terminar con un ataque fuerte o especial"],
+        "dificultad": "Media",
+        "resultado": "Combo Básico"
+      },
+      {
+        "id": 3,
+        "nombre": "Dominar el tatsumaki senpukyaku",
+        "descripcion": "Aprender la técnica del tatsumaki senpukyaku.",
+        "pasos": ["Hacer un cuarto de círculo hacia atrás", "Presionar patada", "Ejecutarlo durante la partida"],
+        "dificultad": "Alta",
+        "resultado": "Tatsumaki"
+      }]
+    },
+
+    {
+      "id": 2,
+      "nombre": "Super Smash Bros Ultimate",
+      "plataforma": "Nintendo Switch",
+      "urlImagen": "assets/Images/Street_Fighter_old_logo.svg",
+      "descripcion": "Juego de peleas en el que personajes de distintas franquicias de nintendo y otros universos se baten a duelo.",
+      "link_plataforma": "https://www.smashbros.com/es_ES/",
+      "rutinas": [{
+        "id": 1,
+        "nombre": "Dominar el Smash Ataque",
+        "descripcion": "Aprender a ejecutar y cargar el Smash Ataque.",
+        "pasos": ["Mover la palanca en una dirección", "Presionar y mantener el botón de ataque"],
+        "dificultad": "Facil",
+        "resultado": "Smash Ataque"
+      },
+      {
+        "id": 2,
+        "nombre": "Combos Aéreos Básicos",
+        "descripcion": "Aprender a realizar combos aéreos básicos.",
+        "pasos": ["Lanzar al oponente al aire", "Usar ataques aéreos consecutivos para mantenerlo en el aire"],
+        "dificultad": "Media",
+        "resultado": "Combo Aéreo"
+      },
+      {
+        "id": 3,
+        "nombre": "Perfect Shield y Contraataque",
+        "descripcion": "Aprender a realizar un Perfect Shield seguido de un contraataque efectivo.",
+        "pasos": ["Esperar el ataque del oponente", "Presionar el botón de escudo justo antes de ser golpeado", "Realizar un contraataque inmediatamente después del Perfect Shield"],
+        "dificultad": "Dificil",
+        "resultado": "Perfect Shield y Contraataque"
+      }]
+    },
+
+    {
+      "id": 3,
+      "nombre": "Super Mario Kart 8",
+      "plataforma": "Nintendo Switch",
+      "urlImagen": "assets/Images/Street_Fighter_old_logo.svg",
+      "descripcion": "Juego de peleas en el que personajes de distintas franquicias de nintendo y otros universos se baten a duelo.",
+      "link_plataforma": "https://mariokart8.nintendo.com/es/",
+      "rutinas": [{
+        "id": 1,
+        "nombre": "Dominar el Turbo de Salida",
+        "descripcion": "Aprender a realizar el turbo de salida al inicio de la carrera.",
+        "pasos": ["Mantener el botón de aceleración justo después del segundo pitido", "Soltar y volver a presionar rápidamente al tercer pitido"],
+        "dificultad": "Facil",
+        "resultado": "Turbo de Salida"
+      },
+      {
+        "id": 2,
+        "nombre": "Perfeccionar el Derrape",
+        "descripcion": "Aprender a realizar y mantener un derrape durante las curvas.",
+        "pasos": ["Iniciar el derrape manteniendo el botón de derrape en la curva", "Controlar la dirección para mantener el derrape", "Soltar el botón de derrape en el momento adecuado para obtener el mini turbo"],
+        "dificultad": "Media",
+        "resultado": "Derrape Perfecto"
+      },
+      {
+        "id": 3,
+        "nombre": "Control de Objetos Avanzado",
+        "descripcion": "Aprender a utilizar los objetos estratégicamente para defenderse y atacar.",
+        "pasos": ["Recoger objetos en las cajas de ítems", "Guardar y usar objetos defensivos como plátanos y caparazones verdes para bloquear ataques", "Utilizar objetos ofensivos en el momento adecuado para maximizar el impacto"],
+        "dificultad": "Dificil",
+        "resultado": "Control Avanzado de Objetos"
+      }]
+    },
+
+    {
+      "id": 4,
+      "nombre": "Devil May Cry 5",
+      "plataforma": "PS4",
+      "urlImagen": "assets/Images/Street_Fighter_old_logo.svg",
+      "descripcion": "This is the second player.",
+      "link_plataforma": "https://www.devilmaycry.com/5/",
+      "rutinas": [{
+        "id": 1,
+        "nombre": "Dominar el Stinger",
+        "descripcion": "Aprender a ejecutar el ataque Stinger con Dante.",
+        "pasos": ["Equipar la espada Rebellion", "Presionar hacia adelante en la palanca izquierda", "Presionar el botón de ataque"],
+        "dificultad": "Facil",
+        "resultado": "Stinger"
+      },
+      {
+        "id": 2,
+        "nombre": "Combos Aéreos",
+        "descripcion": "Aprender a realizar y encadenar combos aéreos para mantener a los enemigos en el aire.",
+        "pasos": ["Lanzar al enemigo al aire con el ataque Launcher", "Saltar y realizar ataques aéreos consecutivos", "Utilizar técnicas como Air Hike para mantenerse en el aire más tiempo"],
+        "dificultad": "Media",
+        "resultado": "Combo Aéreo"
+      },
+      {
+        "id": 3,
+        "nombre": "Maximizar el Estilo SSS",
+        "descripcion": "Aprender a encadenar ataques variados y evitar daños para alcanzar la calificación de estilo SSS.",
+        "pasos": ["Usar una variedad de ataques y armas sin repetir movimientos", "Esquivar y contrarrestar ataques enemigos", "Mantener el combo activo sin recibir daño para mantener y aumentar el estilo"],
+        "dificultad": "Dificil",
+        "resultado": "Estilo SSS"
+      }]
+    }
+  ]

@@ -16,9 +16,6 @@ class ListaRecordatorios extends StatefulWidget {
 }
 
 class _RecordatoriosState extends State<ListaRecordatorios> {
-  TextEditingController rutinaController = TextEditingController();
-  TextEditingController juegoController = TextEditingController();
-  TextEditingController timeController = TextEditingController();
   //List<String> pasosTemporales = [];
   List<Recortatorio> recordatorios = [Recortatorio(namerutina: "Dominar el Shoryuken", namejuego: "StreetFighter", hora: "13:00"),];
 

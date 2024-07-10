@@ -8,7 +8,7 @@ class Recomendaciones{
   Recomendaciones({required this.rutina, required this.usuario, required this.likes});
 }
 
-class News extends StatefulWidget {
+/*class News extends StatefulWidget {
   const News({Key? key}) : super(key: key);
   @override
   _NewsState createState() => _NewsState();
@@ -121,4 +121,4 @@ class _NewsState  extends  State<News>{
       ),
     );
   }
-}
+}*/
